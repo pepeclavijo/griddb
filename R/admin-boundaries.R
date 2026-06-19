@@ -1,0 +1,82 @@
+#' Ingest administrative boundaries into the cell_admin table
+#'
+#' Joins a boundary sf object against an existing grid table (cell
+#' centroid within boundary polygon) and writes the resulting
+#' (cell_id, admin_level, admin_id) rows into masks.cell_admin.
+#'
+#' This function is source-agnostic: pass in any sf object with the
+#' required columns, regardless of whether it originated from GADM,
+#' geoBoundaries, or a customer-drawn region upload.
+#'
+#' @param con A DBI connection
+#' @param boundaries sf object with columns: admin_id, admin_name,
+#'   parent_id (may be NA), and geometry (WGS84)
+#' @param admin_level Character label, e.g. "ADM0", "ADM1", "customer_region"
+#' @param resolution_arcmin Numeric resolution of the grid table to join against
+#' @param source Character label for provenance, e.g. "geoBoundaries", "GADM"
+#' @return Invisibly, the number of rows inserted
+#' @export
+update_admin_boundaries <- function(con, boundaries, admin_level,
+                                     resolution_arcmin, source = NA_character_) {
+  required_cols <- c("admin_id", "admin_name", "geometry")
+  missing_cols <- setdiff(required_cols, names(boundaries))
+  if (length(missing_cols) > 0) {
+    stop("boundaries is missing required column(s): ",
+         paste(missing_cols, collapse = ", "), call. = FALSE)
+  }
+  if (!"parent_id" %in% names(boundaries)) {
+    boundaries$parent_id <- NA_character_
+  }
+
+  table_name <- grid_table_name(resolution_arcmin)
+  if (!DBI::dbExistsTable(con, c("grids", table_name))) {
+    stop("Grid table grids.", table_name, " does not exist. ",
+         "Generate and write the grid before ingesting admin boundaries.",
+         call. = FALSE)
+  }
+
+  staging_name <- "tmp_admin_boundaries"
+  sf::st_write(boundaries, con, layer = c("staging", staging_name),
+               append = FALSE, delete_layer = TRUE)
+
+  n_inserted <- DBI::dbExecute(con, sprintf("
+    INSERT INTO masks.cell_admin (cell_id, admin_level, admin_id, admin_name, parent_id, source)
+    SELECT g.cell_id, %s, b.admin_id, b.admin_name, b.parent_id, %s
+    FROM grids.%s g
+    JOIN staging.%s b
+      ON ST_Within(ST_Centroid(g.geometry), b.geometry)
+    ON CONFLICT (cell_id, admin_level, admin_id) DO NOTHING;
+  ", DBI::dbQuoteString(con, admin_level), DBI::dbQuoteString(con, source),
+     table_name, staging_name))
+
+  DBI::dbExecute(con, sprintf("DROP TABLE IF EXISTS staging.%s;", staging_name))
+
+  message("Inserted ", n_inserted, " cell_admin rows for admin_level = ", admin_level)
+  invisible(n_inserted)
+}
+
+#' Resolve an admin_name to its admin_id within a given admin_level
+#'
+#' @param con A DBI connection
+#' @param admin_level Character, e.g. "ADM1"
+#' @param admin_name Character, human-readable name (case-insensitive match)
+#' @return Character admin_id
+#' @export
+resolve_admin_id <- function(con, admin_level, admin_name) {
+  result <- DBI::dbGetQuery(con, sprintf("
+    SELECT DISTINCT admin_id, admin_name FROM masks.cell_admin
+    WHERE admin_level = %s AND admin_name ILIKE %s
+  ", DBI::dbQuoteString(con, admin_level), DBI::dbQuoteString(con, admin_name)))
+
+  if (nrow(result) == 0) {
+    stop("No admin_level = '", admin_level, "' unit found matching name '",
+         admin_name, "'", call. = FALSE)
+  }
+  if (nrow(result) > 1) {
+    stop("Multiple matches for '", admin_name, "' at admin_level = '", admin_level,
+         "': ", paste(result$admin_name, collapse = ", "),
+         ". Use admin_id directly instead.", call. = FALSE)
+  }
+
+  result$admin_id[1]
+}
