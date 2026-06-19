@@ -22,7 +22,7 @@ write_grid_to_postgis <- function(con, grid_sf) {
   }
 
   table_name <- grid_table_name(resolution_arcmin)
-  table_exists <- DBI::dbExistsTable(con, c("grids", table_name))
+  table_exists <- DBI::dbExistsTable(con, DBI::Id(schema = "grids", table = table_name))
 
   if (!table_exists) {
     DBI::dbExecute(con, sprintf("
@@ -36,7 +36,7 @@ write_grid_to_postgis <- function(con, grid_sf) {
   }
 
   staging_name <- paste0("tmp_", table_name)
-  sf::st_write(grid_sf, con, layer = c("staging", staging_name),
+  sf::st_write(grid_sf, con, layer = DBI::Id(schema = "staging", table = staging_name),
                append = FALSE, delete_layer = TRUE)
 
   DBI::dbExecute(con, sprintf("

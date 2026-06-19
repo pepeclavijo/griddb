@@ -37,7 +37,7 @@ get_simulation_cells <- function(con, resolution_arcmin, admin_level,
   }
 
   table_name <- grid_table_name(resolution_arcmin)
-  if (!DBI::dbExistsTable(con, c("grids", table_name))) {
+  if (!DBI::dbExistsTable(con, DBI::Id(schema = "grids", table = table_name))) {
     stop("Grid table grids.", table_name, " does not exist.", call. = FALSE)
   }
 

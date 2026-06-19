@@ -29,14 +29,14 @@ update_admin_boundaries <- function(con, boundaries, admin_level,
   }
 
   table_name <- grid_table_name(resolution_arcmin)
-  if (!DBI::dbExistsTable(con, c("grids", table_name))) {
+  if (!DBI::dbExistsTable(con, DBI::Id(schema = "grids", table = table_name))) {
     stop("Grid table grids.", table_name, " does not exist. ",
          "Generate and write the grid before ingesting admin boundaries.",
          call. = FALSE)
   }
 
   staging_name <- "tmp_admin_boundaries"
-  sf::st_write(boundaries, con, layer = c("staging", staging_name),
+  sf::st_write(boundaries, con, layer = DBI::Id(schema = "staging", table = staging_name),
                append = FALSE, delete_layer = TRUE)
 
   n_inserted <- DBI::dbExecute(con, sprintf("

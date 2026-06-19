@@ -17,10 +17,10 @@ build_cell_hierarchy <- function(con, fine_arcmin, coarse_arcmin) {
   coarse_table <- grid_table_name(coarse_arcmin)
   hierarchy_table <- hierarchy_table_name(fine_arcmin, coarse_arcmin)
 
-  if (!DBI::dbExistsTable(con, c("grids", fine_table))) {
+  if (!DBI::dbExistsTable(con, DBI::Id(schema = "grids", table = fine_table))) {
     stop("Grid table grids.", fine_table, " does not exist.", call. = FALSE)
   }
-  if (!DBI::dbExistsTable(con, c("grids", coarse_table))) {
+  if (!DBI::dbExistsTable(con, DBI::Id(schema = "grids", table = coarse_table))) {
     stop("Grid table grids.", coarse_table, " does not exist.", call. = FALSE)
   }
 

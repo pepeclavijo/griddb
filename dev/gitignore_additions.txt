@@ -1,0 +1,7 @@
+# Real input data -- boundaries and rasters -- should never be committed.
+# Keep the README and folder structure tracked via .gitkeep, ignore
+# everything else inside data-raw/.
+data-raw/boundaries/*
+!data-raw/boundaries/.gitkeep
+data-raw/crop_masks/*
+!data-raw/crop_masks/.gitkeep

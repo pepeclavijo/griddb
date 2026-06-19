@@ -9,6 +9,7 @@
 library(griddb)
 library(sf)
 library(dplyr)
+library(DBI)
 
 con <- get_db_connection()
 
@@ -94,7 +95,7 @@ fake_crop_presence <- check |>
     mask_year = 2024
   )
 
-dbWriteTable(con, c("staging", "tmp_fake_crop"), fake_crop_presence, overwrite = TRUE)
+dbWriteTable(con, DBI::Id(schema = "staging", table = "tmp_fake_crop"), fake_crop_presence, overwrite = TRUE)
 dbExecute(con, "
   INSERT INTO masks.crop_presence (cell_id, crop, frac_area, mask_source, mask_year)
   SELECT cell_id, crop, frac_area, mask_source, mask_year FROM staging.tmp_fake_crop
