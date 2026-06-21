@@ -7,6 +7,16 @@
 #' both the admin join and the crop mask join are pre-computed lookups
 #' keyed on cell_id, so this is fast regardless of admin unit size.
 #'
+#' \strong{Note on boundary cells}: admin assignment in
+#' \code{\link{update_admin_boundaries}} uses geometric intersection,
+#' not centroid containment, so a single cell may be returned by calls
+#' for two different (adjacent) admin units if that cell genuinely
+#' straddles their shared border. A single call for a single admin unit
+#' is unaffected. If combining results across multiple
+#' \code{get_simulation_cells()} calls (e.g. summing values across
+#' several districts), deduplicate by \code{cell_id} first to avoid
+#' double-counting boundary cells.
+#'
 #' @param con A DBI connection
 #' @param resolution_arcmin Numeric resolution of the grid to query
 #' @param admin_level Character, e.g. "ADM0", "ADM1", "customer_region"

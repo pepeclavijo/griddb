@@ -192,11 +192,21 @@ call.
 
 #### `update_admin_boundaries(con, boundaries, admin_level, resolution_arcmin, source = NA)`
 Joins a boundary `sf` object (any source — geoBoundaries, GADM,
-customer-drawn regions) against an existing grid table by centroid
-containment, and inserts the resulting `(cell_id, admin_level,
-admin_id)` rows into `masks.cell_admin`. `boundaries` must have
-columns `admin_id`, `admin_name`, and `geometry`; `parent_id` is
-optional (added as `NA` if missing).
+customer-drawn regions) against an existing grid table using
+geometric intersection (`ST_Intersects`), and inserts the resulting
+`(cell_id, admin_level, admin_id)` rows into `masks.cell_admin`.
+`boundaries` must have columns `admin_id`, `admin_name`, and
+`geometry`; `parent_id` is optional (added as `NA` if missing).
+
+**Note**: assignment uses intersection, not centroid containment, so
+a cell touching two adjacent admin units will be assigned to both.
+This avoids silently excluding cells that genuinely overlap a region
+but whose centroid falls just outside it (a real problem observed
+when validating against actual district boundaries — see
+`PROCESS_NARRATIVE.md` section 11). The consequence is that summing
+or aggregating across multiple admin-unit queries requires
+deduplicating by `cell_id` first to avoid double-counting boundary
+cells; a query for a single admin unit is unaffected.
 
 #### `resolve_admin_id(con, admin_level, admin_name)`
 Looks up the `admin_id` for a human-readable `admin_name` within a
@@ -301,20 +311,37 @@ equivalent) so the suite still runs cleanly without a live connection.
 
 ## Known limitations / open items
 
+- **Boundary cells can belong to multiple admin units.** Since
+  `update_admin_boundaries()` uses `ST_Intersects` rather than
+  centroid containment, a cell straddling the border between two
+  adjacent regions will appear in both regions' query results. This
+  was a deliberate tradeoff to avoid silently excluding real area at
+  region edges (see `PROCESS_NARRATIVE.md` section 11). Aggregating
+  across multiple admin-unit queries requires deduplicating by
+  `cell_id` first.
 - **Crop-specific masking** is schema-ready (the `crop` column exists)
   but not yet exercised — current usage is a single generic
   `crop = "cropland"` mask. No migration will be needed to add
   crop-specific masks later.
 - **Admin name matching** uses simple `ILIKE` — does not yet handle
   transliteration variants or aliases (relevant for non-Latin-script
-  country subdivisions). An `admin_name_alt` array column is a
-  reasonable future addition if this becomes a problem.
+  country subdivisions; observed in practice with Kazakhstan ADM2
+  names like Balkhash/Balkash/Balqash, and with duplicate city/district
+  name pairs like "Aksu" vs "Aksu District"). An `admin_name_alt`
+  array column is a reasonable future addition if this becomes a
+  recurring problem.
 - **Boundary source**: geoBoundaries is recommended over GADM for
   commercial use due to licensing (GADM restricts commercial use;
   geoBoundaries is CC BY). Verify current license terms before relying
   on either, since terms can change. The ingestion function is
   source-agnostic, so switching sources requires no code changes
   beyond preparing the input `sf` object with the expected columns.
+- **No pixel-perfect edge matching** against hand-clipped legacy
+  boundaries. Whole, uncut cells are included if they intersect a
+  region at all, which means coverage extends slightly past a true
+  boundary in places where it cuts through a cell's middle. Exact
+  edge matching is available only via `clip_boundary` in
+  `export_cells_to_legacy_geojson()`, performed at export time.
 - **Materialized caching** for frequently-queried admin units (e.g. a
   recurring seasonal run for the same country) is not implemented.
   Not needed at current scale — the integer-key join is already cheap

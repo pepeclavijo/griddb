@@ -90,12 +90,27 @@ update_crop_mask <- function(con, raster_path, resolution_arcmin,
   } else {
     terra::rast(raster_path)
   }
+
+  # Crop to the cells' extent (with a small buffer) before extracting --
+  # without this, terra::extract() can end up scanning far more of a
+  # large global raster than necessary, which is dramatically slower
+  # for small regions like a single country.
+  cells_bbox <- sf::st_bbox(cells)
+  buffer_deg <- (resolution_arcmin / 60) * 2  # pad by ~2 cells' width
+  crop_extent <- terra::ext(
+    cells_bbox["xmin"] - buffer_deg, cells_bbox["xmax"] + buffer_deg,
+    cells_bbox["ymin"] - buffer_deg, cells_bbox["ymax"] + buffer_deg
+  )
+  r <- terra::crop(r, crop_extent)
+
   cells_vect <- terra::vect(cells)
 
   if (raster_type == "classified") {
     binary_mask <- terra::classify(r, cbind(crop_class_values, 1), others = 0)
     frac <- terra::extract(binary_mask, cells_vect, fun = mean, na.rm = TRUE)
-    cells$frac_area <- frac[, 2]
+    frac_vals <- frac[, 2]
+    frac_vals[is.na(frac_vals)] <- 0
+    cells$frac_area <- frac_vals
 
   } else {
     # percent_area: pixel values are 0-100 percent of that pixel's
@@ -113,7 +128,14 @@ update_crop_mask <- function(con, raster_path, resolution_arcmin,
       sf::st_transform(cells, utm_zone_for_geometry(cells))
     ))
 
-    cells$frac_area <- pmin(cropland_area_sum[, 2] / cell_total_area_m2, 1)
+    frac <- cropland_area_sum[, 2] / cell_total_area_m2
+    # A cell with no valid underlying raster data (e.g. right at the
+    # edge of the cropped extent, or a region with no data in the
+    # source raster) should be treated as zero cropland, not left as
+    # NA -- the database column is NOT NULL, and "no data" is a
+    # reasonable interpretation of "no known cropland" for this purpose.
+    frac[is.na(frac)] <- 0
+    cells$frac_area <- pmin(frac, 1)
   }
 
   cells$crop <- crop

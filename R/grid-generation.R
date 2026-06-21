@@ -60,6 +60,18 @@ generate_grid_bbox <- function(resolution_arcmin, xmin, ymin, xmax, ymax) {
   lat_top_offsets <- seq(ymin_snap, ymax_snap - res_deg, by = res_deg)
   lats_top <- 90 - lat_top_offsets   # convert back to actual latitude (top edge of each row)
 
+  n_expected_cells <- length(lons) * length(lat_top_offsets)
+  if (n_expected_cells > 5e6) {
+    stop(
+      "Refusing to generate ", format(n_expected_cells, big.mark = ","),
+      " cells -- this usually means the bounding box coordinates are not ",
+      "in WGS84 degrees (check for a CRS in meters, e.g. Web Mercator, that ",
+      "wasn't reprojected before calling this function). If this cell count ",
+      "is genuinely intended, this safety limit can be reviewed.",
+      call. = FALSE
+    )
+  }
+
   grid_coords <- expand.grid(lon = lons, lat_top = lats_top)
   grid_coords$lat_bottom <- grid_coords$lat_top - res_deg
   grid_coords$lon_right <- grid_coords$lon + res_deg
@@ -110,6 +122,16 @@ generate_grid_bbox <- function(resolution_arcmin, xmin, ymin, xmax, ymax) {
 generate_grid_for_boundary <- function(resolution_arcmin, boundary) {
   if (!requireNamespace("sf", quietly = TRUE)) {
     stop("Package 'sf' is required for generate_grid_for_boundary()", call. = FALSE)
+  }
+
+  boundary_crs <- sf::st_crs(boundary)
+  if (is.na(boundary_crs) || boundary_crs$epsg != 4326) {
+    stop(
+      "boundary must be in WGS84 (EPSG:4326), but its CRS is currently ",
+      if (is.na(boundary_crs)) "undefined" else paste0(boundary_crs$input, " (EPSG:", boundary_crs$epsg, ")"),
+      ".\nReproject it first, e.g.: boundary <- sf::st_transform(boundary, 4326)",
+      call. = FALSE
+    )
   }
 
   bbox <- sf::st_bbox(boundary)

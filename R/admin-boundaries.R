@@ -1,8 +1,32 @@
 #' Ingest administrative boundaries into the cell_admin table
 #'
-#' Joins a boundary sf object against an existing grid table (cell
-#' centroid within boundary polygon) and writes the resulting
-#' (cell_id, admin_level, admin_id) rows into masks.cell_admin.
+#' Joins a boundary sf object against an existing grid table and writes
+#' the resulting (cell_id, admin_level, admin_id) rows into
+#' masks.cell_admin.
+#'
+#' Assignment uses geometric intersection (\code{ST_Intersects}), not
+#' centroid containment: a cell is assigned to an admin unit if any
+#' part of the cell overlaps that unit's boundary, even slightly. This
+#' is a deliberate choice to avoid under-coverage at boundaries -- with
+#' centroid-based assignment, a cell whose body genuinely overlaps a
+#' region but whose centroid falls just outside it would be excluded
+#' entirely, silently leaving out real area at every region's edge.
+#'
+#' \strong{Consequence: a single cell can be assigned to more than one
+#' admin unit at the same level} (e.g. a 15-arcmin cell straddling the
+#' boundary between two adjacent districts will appear in both
+#' districts' \code{\link{get_simulation_cells}} results). This trades
+#' away the previous guarantee that cells belonging to disjoint admin
+#' units are themselves disjoint. In exchange, no cell that genuinely
+#' touches a region is ever silently dropped from it.
+#'
+#' \strong{Practical implication for callers}: if aggregating or
+#' summing values (e.g. total cropland area) across the results of
+#' multiple \code{get_simulation_cells()} calls for adjacent admin
+#' units, deduplicate by \code{cell_id} first, or a boundary cell will
+#' be double-counted. A single call for a single admin unit is
+#' unaffected -- duplication only arises when results from multiple
+#' units are combined.
 #'
 #' This function is source-agnostic: pass in any sf object with the
 #' required columns, regardless of whether it originated from GADM,
@@ -44,7 +68,7 @@ update_admin_boundaries <- function(con, boundaries, admin_level,
     SELECT g.cell_id, %s, b.admin_id, b.admin_name, b.parent_id, %s
     FROM grids.%s g
     JOIN staging.%s b
-      ON ST_Within(ST_Centroid(g.geometry), b.geometry)
+      ON ST_Intersects(g.geometry, b.geometry)
     ON CONFLICT (cell_id, admin_level, admin_id) DO NOTHING;
   ", DBI::dbQuoteString(con, admin_level), DBI::dbQuoteString(con, source),
      table_name, staging_name))

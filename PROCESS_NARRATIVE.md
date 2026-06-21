@@ -160,13 +160,55 @@ identical to what production usage would look like (a remote
 Postgres connection string), so nothing about the package's design
 needs to change when moving from a test instance to a production one.
 
-## 10. Current state and the immediate next test
+## 11. Switching admin cell assignment from centroid to intersection
 
-As of this writing, the package skeleton, schema, and core functions
-(grid generation, admin boundary ingestion, crop mask ingestion, and
-the `get_simulation_cells()` query function) have been written and
-pushed to GitHub. The immediate validation step is a single-country
-slice: Kazakhstan, one grid resolution, a generic cropland mask, and
-ADM0/ADM1 boundaries from geoBoundaries — confirming the full pipeline
-end-to-end before considering whether/when to expand to additional
-countries or resolutions.
+Real-data validation against Kazakhstan's actual ADM1/ADM2 boundaries
+surfaced a concrete problem with the original centroid-containment
+rule (`ST_Within(ST_Centroid(cell), boundary)`): comparing a
+`griddb`-derived export against the legacy KZ rice GeoJSON for the
+same district (Balkhash District) showed visible gaps where the
+legacy boundary extended beyond the new grid cells. Quantifying it
+confirmed the cause -- cells whose body genuinely overlapped the
+district, but whose centroid fell just outside it (common right along
+any boundary), were being silently excluded.
+
+This was judged unacceptable for the actual use case: missing real
+agricultural area at a district's edge is a worse failure mode than
+including a small amount of extra area. The fix was to switch
+`update_admin_boundaries()`'s join condition from centroid containment
+to `ST_Intersects` -- a cell is now assigned to a region if any part of
+it overlaps that region's boundary at all.
+
+This trades away one property the system previously had for free:
+cells belonging to disjoint admin units were themselves guaranteed
+disjoint. Under intersection-based assignment, a single cell can now
+be assigned to more than one adjacent admin unit if it straddles their
+shared border. This was accepted as the right tradeoff for this use
+case, with the consequence made explicit in both
+`update_admin_boundaries()`'s and `get_simulation_cells()`'s
+documentation: combining results across multiple admin-unit queries
+(e.g. summing a value across several adjacent districts) now requires
+deduplicating by `cell_id` first to avoid double-counting boundary
+cells. A query for a single admin unit is unaffected.
+
+Note that this does not produce pixel-perfect edge matching against
+the legacy hand-clipped boundaries either -- it resolves the
+under-coverage problem (red sticking out past blue) at the cost of
+mild over-coverage at edges (whole cells extending slightly past a
+true boundary that cuts through their middle). Exact edge matching, if
+ever needed, remains available only via `clip_boundary` in
+`export_cells_to_legacy_geojson()`, which performs true geometric
+clipping at export time rather than changing how cells are assigned
+internally.
+
+## 12. Current state
+
+As of this writing, grid generation, admin boundary ingestion
+(intersection-based assignment), crop mask ingestion (both classified
+and percent-area raster styles), and the query/export functions have
+all been validated against real Kazakhstan data -- ADM0/ADM1/ADM2
+boundaries and a real percent-cropland-area NetCDF mask -- including a
+direct comparison against an existing legacy output file for the same
+district, which surfaced and led to fixing the admin-assignment
+edge-coverage issue in section 11.
+
