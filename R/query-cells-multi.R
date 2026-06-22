@@ -26,6 +26,17 @@
 #' \code{\link{update_admin_boundaries}} for why a cell can belong to
 #' more than one unit at the same level.
 #'
+#' \strong{Name collisions}: administrative data frequently contains a
+#' city and a same-named surrounding region/district as two SEPARATE
+#' units (e.g. "Almaty" the city and "Almaty Region" the oblast,
+#' observed to genuinely overlap rather than nest -- see
+#' \code{PROCESS_NARRATIVE.md}). Requesting only one of these by name
+#' can silently miss real area. Set \code{expand_near_matches = TRUE}
+#' to automatically also include any other unit at the same level whose
+#' name is a substring match (either direction) of a requested unit's
+#' name -- a message is printed listing what was added, so the
+#' expansion is never silent.
+#'
 #' @param con A DBI connection
 #' @param resolution_arcmin Numeric resolution of the grid to query
 #' @param admin_level Character level of the units whose cells are
@@ -38,6 +49,12 @@
 #' @param admin_ids,admin_names Character vector of \code{admin_level}
 #'   unit ids/names to select directly. Provide one, not both, when
 #'   using direct-unit selection.
+#' @param expand_near_matches Logical, default FALSE. If TRUE, after
+#'   resolving the requested admin units, also includes any other unit
+#'   at the same \code{admin_level} whose name partially matches a
+#'   requested unit's name (substring either direction). Prints a
+#'   message listing any units added this way. See "Name collisions"
+#'   above.
 #' @param crop,min_frac_area,mask_source Passed through to each
 #'   underlying \code{\link{get_simulation_cells}} call -- see that
 #'   function's documentation
@@ -58,11 +75,19 @@
 #' get_simulation_cells_multi(con, resolution_arcmin = 15,
 #'                             admin_level = "ADM2",
 #'                             admin_names = c("Balkhash District", "Aksu District"))
+#'
+#' # Requesting "Almaty Region" but also auto-including "Almaty" (the
+#' # city) since they overlap and aren't nested:
+#' get_simulation_cells_multi(con, resolution_arcmin = 15,
+#'                             admin_level = "ADM1",
+#'                             admin_names = "Almaty Region",
+#'                             expand_near_matches = TRUE)
 #' }
 get_simulation_cells_multi <- function(con, resolution_arcmin, admin_level,
                                         parent_level = NULL,
                                         parent_ids = NULL, parent_names = NULL,
                                         admin_ids = NULL, admin_names = NULL,
+                                        expand_near_matches = FALSE,
                                         crop = "cropland", min_frac_area = 0.05,
                                         mask_source = NULL) {
   using_parent <- !is.null(parent_ids) || !is.null(parent_names)
@@ -114,6 +139,57 @@ get_simulation_cells_multi <- function(con, resolution_arcmin, admin_level,
 
   units <- if (!is.null(admin_ids)) admin_ids else admin_names
   use_id <- !is.null(admin_ids)
+
+  if (expand_near_matches) {
+    # First resolve every requested unit to its admin_name (whether
+    # the caller supplied ids or names), since the near-match check is
+    # name-based.
+    resolved_names <- if (use_id) {
+      lookup <- DBI::dbGetQuery(con, sprintf("
+        SELECT DISTINCT admin_id, admin_name FROM masks.cell_admin
+        WHERE admin_level = %s AND admin_id IN (%s);
+      ", DBI::dbQuoteString(con, admin_level),
+         paste(DBI::dbQuoteString(con, units), collapse = ", ")))
+      lookup$admin_name
+    } else {
+      units
+    }
+
+    all_units_at_level <- DBI::dbGetQuery(con, sprintf("
+      SELECT DISTINCT admin_id, admin_name FROM masks.cell_admin
+      WHERE admin_level = %s;
+    ", DBI::dbQuoteString(con, admin_level)))
+
+    near_match_ids <- character(0)
+    for (nm in resolved_names) {
+      matches <- all_units_at_level[
+        all_units_at_level$admin_name != nm &
+          (grepl(nm, all_units_at_level$admin_name, ignore.case = TRUE) |
+           mapply(grepl, all_units_at_level$admin_name, nm, ignore.case = TRUE)),
+      ]
+      if (nrow(matches) > 0) {
+        message("expand_near_matches: also including ", paste(matches$admin_name, collapse = ", "),
+                " (name overlaps requested unit '", nm, "')")
+        near_match_ids <- c(near_match_ids, matches$admin_id)
+      }
+    }
+
+    if (length(near_match_ids) > 0) {
+      if (use_id) {
+        units <- unique(c(units, near_match_ids))
+      } else {
+        # Switch to id-based internally once expansion occurs, since
+        # the expanded set is most reliably referenced by id
+        original_ids <- DBI::dbGetQuery(con, sprintf("
+          SELECT DISTINCT admin_id FROM masks.cell_admin
+          WHERE admin_level = %s AND admin_name IN (%s);
+        ", DBI::dbQuoteString(con, admin_level),
+           paste(DBI::dbQuoteString(con, units), collapse = ", ")))$admin_id
+        units <- unique(c(original_ids, near_match_ids))
+        use_id <- TRUE
+      }
+    }
+  }
 
   results <- vector("list", length(units))
   for (i in seq_along(units)) {

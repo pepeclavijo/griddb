@@ -150,6 +150,50 @@ cat("\nSingle-district selection:", nrow(single_district), "cells (should equal 
     nrow(west_only), ")\n")
 
 # ---------------------------------------------------------------------
+# 6. Test expand_near_matches: requesting only "Synthetica West"
+#    should, with expand_near_matches = TRUE, also pull in "Synthetica
+#    East" if their names were set up to partially overlap. Using a
+#    dedicated name pair here to mimic the real Almaty/Almaty Region
+#    collision cleanly.
+# ---------------------------------------------------------------------
+dbExecute(con, "DELETE FROM masks.cell_admin WHERE admin_level = 'NEAR_MATCH_TEST';")
+
+city_like <- west_only[1, ]  # reuse one real cell's geometry for a quick synthetic row
+dbExecute(con, sprintf("
+  INSERT INTO masks.cell_admin (cell_id, admin_level, admin_id, admin_name, source)
+  VALUES (%s, 'NEAR_MATCH_TEST', 'CITY', 'Synthetica', 'synthetic'),
+         (%s, 'NEAR_MATCH_TEST', 'REGION', 'Synthetica Region', 'synthetic');
+", as.integer(city_like$cell_id[1]), as.integer(city_like$cell_id[1])))
+
+without_expansion <- get_simulation_cells_multi(
+  con, resolution_arcmin = res, admin_level = "NEAR_MATCH_TEST",
+  admin_names = "Synthetica", expand_near_matches = FALSE,
+  crop = NULL, min_frac_area = NULL
+)
+cat("\nWithout expansion, units queried: 1 ('Synthetica' only)\n")
+
+with_expansion <- get_simulation_cells_multi(
+  con, resolution_arcmin = res, admin_level = "NEAR_MATCH_TEST",
+  admin_names = "Synthetica", expand_near_matches = TRUE,
+  crop = NULL, min_frac_area = NULL
+)
+cat("With expansion, 'Synthetica Region' should have been auto-included ",
+    "(see message above)\n")
+
+# Both will return the SAME single cell here (since we inserted the
+# same cell_id for both names), but the point of this test is
+# confirming the MESSAGE fires and the admin_id resolution correctly
+# picks up the near-match -- check this by inspecting n_admin_matches
+print(with_expansion$n_admin_matches)
+if (with_expansion$n_admin_matches[1] == 2) {
+  cat(">>> PASS: cell correctly shows it matched BOTH near-match units.\n")
+} else {
+  cat(">>> FAIL: expansion did not pick up both units as expected.\n")
+}
+
+dbExecute(con, "DELETE FROM masks.cell_admin WHERE admin_level = 'NEAR_MATCH_TEST';")
+
+# ---------------------------------------------------------------------
 # Cleanup
 # ---------------------------------------------------------------------
 # dbExecute(con, sprintf("DROP TABLE IF EXISTS grids.%s CASCADE;", grid_table))

@@ -81,9 +81,26 @@ update_admin_boundaries <- function(con, boundaries, admin_level,
 
 #' Resolve an admin_name to its admin_id within a given admin_level
 #'
+#' Looks up an exact (case-insensitive) name match first. If exactly
+#' one exact match is found, it is returned -- but before returning,
+#' a separate check looks for OTHER unit names at the same level that
+#' partially contain or are contained by the requested name (e.g.
+#' requesting "Almaty" when "Almaty Region" also exists). If any such
+#' near-matches exist, a warning is issued naming them, since this is
+#' a common and easy-to-miss source of silently selecting the wrong
+#' unit -- a short name like "Almaty" can be an EXACT match for a
+#' small city while a DIFFERENT, larger unit ("Almaty Region") was
+#' actually intended. The exact match is still returned (this is a
+#' warning, not an error), but the caller is alerted to double-check.
+#'
+#' If the exact match itself is ambiguous (more than one unit shares
+#' the exact requested name), this remains an error, as before.
+#'
 #' @param con A DBI connection
 #' @param admin_level Character, e.g. "ADM1"
-#' @param admin_name Character, human-readable name (case-insensitive match)
+#' @param admin_name Character, human-readable name (case-insensitive,
+#'   exact match required for resolution; near-matches only trigger a
+#'   warning, not an alternate resolution)
 #' @return Character admin_id
 #' @export
 resolve_admin_id <- function(con, admin_level, admin_name) {
@@ -97,9 +114,38 @@ resolve_admin_id <- function(con, admin_level, admin_name) {
          admin_name, "'", call. = FALSE)
   }
   if (nrow(result) > 1) {
-    stop("Multiple matches for '", admin_name, "' at admin_level = '", admin_level,
+    stop("Multiple exact matches for '", admin_name, "' at admin_level = '", admin_level,
          "': ", paste(result$admin_name, collapse = ", "),
          ". Use admin_id directly instead.", call. = FALSE)
+  }
+
+  # Exact match found and unambiguous -- but check for OTHER unit names
+  # at this level that partially overlap the requested name (substring
+  # either direction), which is the classic city-vs-region collision
+  # (e.g. "Almaty" the city vs. "Almaty Region" the oblast). This is a
+  # warning, not an error: the exact match is still likely what was
+  # asked for verbatim, but the caller should be alerted that a
+  # similarly-named, likely-different unit also exists.
+  near_matches <- DBI::dbGetQuery(con, sprintf("
+    SELECT DISTINCT admin_id, admin_name FROM masks.cell_admin
+    WHERE admin_level = %s
+      AND admin_name NOT ILIKE %s
+      AND (admin_name ILIKE %s OR %s ILIKE '%%' || admin_name || '%%')
+  ", DBI::dbQuoteString(con, admin_level), DBI::dbQuoteString(con, admin_name),
+     DBI::dbQuoteString(con, paste0("%", admin_name, "%")),
+     DBI::dbQuoteString(con, admin_name)))
+
+  if (nrow(near_matches) > 0) {
+    warning(
+      "Exact match found for '", admin_name, "' (admin_id = '", result$admin_id[1],
+      "'), but similarly-named unit(s) also exist at admin_level = '", admin_level,
+      "' and may be what you actually meant: ",
+      paste(near_matches$admin_name, collapse = ", "),
+      ". This is common where a city and its surrounding region/district share a ",
+      "name. Verify '", result$admin_name[1], "' (admin_id = '", result$admin_id[1],
+      "') is the intended unit, not one of: ", paste(near_matches$admin_name, collapse = ", "),
+      call. = FALSE
+    )
   }
 
   result$admin_id[1]
