@@ -201,7 +201,83 @@ ever needed, remains available only via `clip_boundary` in
 clipping at export time rather than changing how cells are assigned
 internally.
 
-## 12. Current state
+## 13. Investigating `frac_poly_covered_by_pt = 0` in pSIMS CLI output
+
+A real Almaty test run (15 arcmin `griddb` cells, `delta_lat`/`delta_lon`
+set to 15 in the pSIMS CLI) showed roughly 76% of point-level output
+rows with `frac_poly_covered_by_pt = 0`. This looked alarming at first
+and prompted a full investigation into whether `griddb`'s grid was
+misaligned with the CLI's own internal simulation grid.
+
+**What `frac_poly_covered_by_pt` actually is**: a continuous overlap
+fraction between a simulated sample point's representative footprint
+and the named polygon -- not a binary match/no-match flag. This was
+confirmed by comparing against an unrelated Colombia farm-polygon test
+case, where the same column showed genuine fractional values
+(0.16-0.42) rather than 0/1.
+
+**What `delta`/`delta_lat`/`delta_lon` actually control**: per the
+underlying pSIMS engine's own parameter documentation (not the
+`psims_cli` README, which doesn't fully explain this), `delta` is
+"simulation delta, gridcell spacing in arcminutes" -- pSIMS's own
+internal simulation grid resolution, independent of whatever polygon
+shape was uploaded. Units are arcminutes, confirmed directly from that
+documentation (resolving an earlier worry that the Almaty value of 15
+might have been a units mismatch -- it was not).
+
+**Grid alignment was checked directly and ruled out as a cause**: by
+extracting every unique sample-point coordinate pSIMS actually used
+across the full Almaty run and checking each one's value modulo the
+0.25 deg (15 arcmin) cell size, every single point showed an identical
+phase remainder (0.125) on both latitude and longitude. `griddb`'s own
+cell centroids, checked the same way, showed the identical 0.125
+remainder. This confirms `griddb`'s global-origin-anchored grid and
+pSIMS's internal grid are precisely phase-aligned at this resolution --
+not an anchor/origin mismatch.
+
+**The actual explanation**: pSIMS appears to sample 4 sub-points per
+delta-sized cell (one per quadrant) -- plausibly to characterize
+sub-grid soil heterogeneity, given the soil input data's native
+resolution (~1km, from the Global Soil Dataset for Earth System
+Modeling, http://globalchange.bnu.edu.cn/research/soilw) is far finer
+than the 15 arcmin (~28-30km) delta used for this run, while weather
+(ERA5) is closer to the delta resolution already. Only one of the 4
+sub-points per cell is the true centroid (`frac = 1.0`); the other
+three legitimately sample territory outside the named polygon
+(`frac = 0`), and are expected to be weighted by `frac_poly_covered_by_pt`
+during aggregation rather than discarded or treated as errors.
+
+**Confirmation**: running `aggregate-polygon` (which the
+`psims_cli` README notes must run before `aggregate-reporting-unit`)
+produced sensible, plausible yield results -- consistent with the
+4-point raw output being correctly collapsed and weighted at the
+aggregation step, exactly as the point-level data's structure implies
+it should be.
+
+**Practical takeaway**: a high `frac_poly_covered_by_pt = 0` rate in
+raw, point-level pSIMS CLI output is not necessarily a sign of a
+`griddb` grid-alignment problem, a `delta` misconfiguration, or a CLI
+bug. The point-level file is an intermediate product reflecting
+sub-cell sampling design, not a final per-polygon result -- always
+validate against the polygon-aggregated output (`aggregate-polygon`)
+before concluding something is wrong upstream. If the aggregated
+output looks sensible, the raw zeros are very likely expected
+behavior, not a defect.
+
+**Open question, not resolved here**: why this specific run prompted
+investigation when (per the person running it) this pattern hadn't
+been noticed before in other runs. Possible factors worth checking in
+a future investigation: whether `delta` has historically been set
+closer to the soil grid's native resolution (in which case sub-points
+would mostly coincide with one polygon rather than spilling into
+neighbors), whether this was the first time `delta` was set equal to
+the `griddb` polygon's own resolution specifically, or whether the
+proportion of zero-rows varies meaningfully by crop, region, or some
+other run-specific factor. This section reflects what was established
+for this one Almaty/winter-wheat run, not a general rule confirmed
+across other configurations.
+
+## 14. Current state
 
 As of this writing, grid generation, admin boundary ingestion
 (intersection-based assignment), crop mask ingestion (both classified
@@ -210,5 +286,8 @@ all been validated against real Kazakhstan data -- ADM0/ADM1/ADM2
 boundaries and a real percent-cropland-area NetCDF mask -- including a
 direct comparison against an existing legacy output file for the same
 district, which surfaced and led to fixing the admin-assignment
-edge-coverage issue in section 11.
+edge-coverage issue in section 11. Section 13 documents a separate
+investigation into the downstream pSIMS CLI's output, which concluded
+`griddb`'s grid generation was not the cause of the behavior observed.
+
 

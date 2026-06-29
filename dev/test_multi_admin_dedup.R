@@ -150,6 +150,28 @@ cat("\nSingle-district selection:", nrow(single_district), "cells (should equal 
     nrow(west_only), ")\n")
 
 # ---------------------------------------------------------------------
+# 5b. Confirm the DEFAULT export always includes name/area/
+#     reporting_unit (required by the downstream CLI), with cell_id
+#     ALSO always present as a separate column.
+# ---------------------------------------------------------------------
+default_export <- export_cells_to_legacy_geojson(
+  combined_cells, output_path = tempfile(fileext = ".geojson")
+)
+print(names(sf::st_drop_geometry(default_export)))
+
+required_cols <- c("name", "cell_id", "area", "reporting_unit")
+if (all(required_cols %in% names(sf::st_drop_geometry(default_export))) &&
+    is.character(default_export$name) &&
+    identical(default_export$name, as.character(combined_cells$cell_id)) &&
+    identical(default_export$cell_id, combined_cells$cell_id) &&
+    all(default_export$reporting_unit == "griddb_export")) {
+  cat(">>> PASS: default export includes name (= cell_id as a string), area, reporting_unit ",
+      "(CLI requirement), plus a correct, separate numeric cell_id column.\n", sep = "")
+} else {
+  cat(">>> FAIL: default export is missing required columns or values.\n")
+}
+
+# ---------------------------------------------------------------------
 # 6. Test expand_near_matches: requesting only "Synthetica West"
 #    should, with expand_near_matches = TRUE, also pull in "Synthetica
 #    East" if their names were set up to partially overlap. Using a

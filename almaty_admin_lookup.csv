@@ -1,0 +1,927 @@
+"cell_id","admin_level","admin_id","admin_name","parent_id"
+250139,"ADM0","Kazakhstan","KAZ",NA
+250139,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+250139,"ADM1","KAZ011","Karaganda Region","Kazakhstan"
+250139,"ADM2","KAZ005001","Balkhash District","KAZ005"
+250139,"ADM2","KAZ011002","Aktogay District","KAZ011"
+250140,"ADM0","Kazakhstan","KAZ",NA
+250140,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+250140,"ADM1","KAZ011","Karaganda Region","Kazakhstan"
+250140,"ADM2","KAZ005001","Balkhash District","KAZ005"
+250140,"ADM2","KAZ011002","Aktogay District","KAZ011"
+250141,"ADM0","Kazakhstan","KAZ",NA
+250141,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+250141,"ADM1","KAZ011","Karaganda Region","Kazakhstan"
+250141,"ADM2","KAZ005001","Balkhash District","KAZ005"
+250141,"ADM2","KAZ011002","Aktogay District","KAZ011"
+250142,"ADM0","Kazakhstan","KAZ",NA
+250142,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+250142,"ADM1","KAZ011","Karaganda Region","Kazakhstan"
+250142,"ADM2","KAZ005001","Balkhash District","KAZ005"
+250142,"ADM2","KAZ011002","Aktogay District","KAZ011"
+250143,"ADM0","Kazakhstan","KAZ",NA
+250143,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+250143,"ADM1","KAZ011","Karaganda Region","Kazakhstan"
+250143,"ADM2","KAZ005001","Balkhash District","KAZ005"
+250143,"ADM2","KAZ011002","Aktogay District","KAZ011"
+250144,"ADM0","Kazakhstan","KAZ",NA
+250144,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+250144,"ADM1","KAZ011","Karaganda Region","Kazakhstan"
+250144,"ADM2","KAZ005001","Balkhash District","KAZ005"
+250144,"ADM2","KAZ011002","Aktogay District","KAZ011"
+250145,"ADM0","Kazakhstan","KAZ",NA
+250145,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+250145,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+250145,"ADM1","KAZ011","Karaganda Region","Kazakhstan"
+250145,"ADM2","KAZ005001","Balkhash District","KAZ005"
+250145,"ADM2","KAZ010004","Karatal District","KAZ010"
+250145,"ADM2","KAZ011002","Aktogay District","KAZ011"
+251578,"ADM0","Kazakhstan","KAZ",NA
+251578,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+251578,"ADM1","KAZ011","Karaganda Region","Kazakhstan"
+251578,"ADM2","KAZ005001","Balkhash District","KAZ005"
+251578,"ADM2","KAZ011002","Aktogay District","KAZ011"
+251579,"ADM0","Kazakhstan","KAZ",NA
+251579,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+251579,"ADM1","KAZ011","Karaganda Region","Kazakhstan"
+251579,"ADM2","KAZ005001","Balkhash District","KAZ005"
+251579,"ADM2","KAZ011002","Aktogay District","KAZ011"
+251580,"ADM0","Kazakhstan","KAZ",NA
+251580,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+251580,"ADM2","KAZ005001","Balkhash District","KAZ005"
+251581,"ADM0","Kazakhstan","KAZ",NA
+251581,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+251581,"ADM2","KAZ005001","Balkhash District","KAZ005"
+251582,"ADM0","Kazakhstan","KAZ",NA
+251582,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+251582,"ADM2","KAZ005001","Balkhash District","KAZ005"
+251583,"ADM0","Kazakhstan","KAZ",NA
+251583,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+251583,"ADM2","KAZ005001","Balkhash District","KAZ005"
+251584,"ADM0","Kazakhstan","KAZ",NA
+251584,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+251584,"ADM2","KAZ005001","Balkhash District","KAZ005"
+251585,"ADM0","Kazakhstan","KAZ",NA
+251585,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+251585,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+251585,"ADM2","KAZ005001","Balkhash District","KAZ005"
+251585,"ADM2","KAZ010004","Karatal District","KAZ010"
+253017,"ADM0","Kazakhstan","KAZ",NA
+253017,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+253017,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+253017,"ADM1","KAZ011","Karaganda Region","Kazakhstan"
+253017,"ADM2","KAZ005001","Balkhash District","KAZ005"
+253017,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+253017,"ADM2","KAZ011002","Aktogay District","KAZ011"
+253018,"ADM0","Kazakhstan","KAZ",NA
+253018,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+253018,"ADM1","KAZ011","Karaganda Region","Kazakhstan"
+253018,"ADM2","KAZ005001","Balkhash District","KAZ005"
+253018,"ADM2","KAZ011002","Aktogay District","KAZ011"
+253019,"ADM0","Kazakhstan","KAZ",NA
+253019,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+253019,"ADM2","KAZ005001","Balkhash District","KAZ005"
+253020,"ADM0","Kazakhstan","KAZ",NA
+253020,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+253020,"ADM2","KAZ005001","Balkhash District","KAZ005"
+253021,"ADM0","Kazakhstan","KAZ",NA
+253021,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+253021,"ADM2","KAZ005001","Balkhash District","KAZ005"
+253022,"ADM0","Kazakhstan","KAZ",NA
+253022,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+253022,"ADM2","KAZ005001","Balkhash District","KAZ005"
+253023,"ADM0","Kazakhstan","KAZ",NA
+253023,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+253023,"ADM2","KAZ005001","Balkhash District","KAZ005"
+253024,"ADM0","Kazakhstan","KAZ",NA
+253024,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+253024,"ADM2","KAZ005001","Balkhash District","KAZ005"
+253025,"ADM0","Kazakhstan","KAZ",NA
+253025,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+253025,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+253025,"ADM2","KAZ005001","Balkhash District","KAZ005"
+253025,"ADM2","KAZ010004","Karatal District","KAZ010"
+254456,"ADM0","Kazakhstan","KAZ",NA
+254456,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+254456,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+254456,"ADM2","KAZ005001","Balkhash District","KAZ005"
+254456,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+254457,"ADM0","Kazakhstan","KAZ",NA
+254457,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+254457,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+254457,"ADM2","KAZ005001","Balkhash District","KAZ005"
+254457,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+254458,"ADM0","Kazakhstan","KAZ",NA
+254458,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+254458,"ADM2","KAZ005001","Balkhash District","KAZ005"
+254459,"ADM0","Kazakhstan","KAZ",NA
+254459,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+254459,"ADM2","KAZ005001","Balkhash District","KAZ005"
+254460,"ADM0","Kazakhstan","KAZ",NA
+254460,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+254460,"ADM2","KAZ005001","Balkhash District","KAZ005"
+254461,"ADM0","Kazakhstan","KAZ",NA
+254461,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+254461,"ADM2","KAZ005001","Balkhash District","KAZ005"
+254462,"ADM0","Kazakhstan","KAZ",NA
+254462,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+254462,"ADM2","KAZ005001","Balkhash District","KAZ005"
+254463,"ADM0","Kazakhstan","KAZ",NA
+254463,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+254463,"ADM2","KAZ005001","Balkhash District","KAZ005"
+254464,"ADM0","Kazakhstan","KAZ",NA
+254464,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+254464,"ADM2","KAZ005001","Balkhash District","KAZ005"
+254465,"ADM0","Kazakhstan","KAZ",NA
+254465,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+254465,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+254465,"ADM2","KAZ005001","Balkhash District","KAZ005"
+254465,"ADM2","KAZ010004","Karatal District","KAZ010"
+255896,"ADM0","Kazakhstan","KAZ",NA
+255896,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+255896,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+255896,"ADM2","KAZ005001","Balkhash District","KAZ005"
+255896,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+255897,"ADM0","Kazakhstan","KAZ",NA
+255897,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+255897,"ADM2","KAZ005001","Balkhash District","KAZ005"
+255898,"ADM0","Kazakhstan","KAZ",NA
+255898,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+255898,"ADM2","KAZ005001","Balkhash District","KAZ005"
+255899,"ADM0","Kazakhstan","KAZ",NA
+255899,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+255899,"ADM2","KAZ005001","Balkhash District","KAZ005"
+255900,"ADM0","Kazakhstan","KAZ",NA
+255900,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+255900,"ADM2","KAZ005001","Balkhash District","KAZ005"
+255901,"ADM0","Kazakhstan","KAZ",NA
+255901,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+255901,"ADM2","KAZ005001","Balkhash District","KAZ005"
+255902,"ADM0","Kazakhstan","KAZ",NA
+255902,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+255902,"ADM2","KAZ005001","Balkhash District","KAZ005"
+255903,"ADM0","Kazakhstan","KAZ",NA
+255903,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+255903,"ADM2","KAZ005001","Balkhash District","KAZ005"
+255904,"ADM0","Kazakhstan","KAZ",NA
+255904,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+255904,"ADM2","KAZ005001","Balkhash District","KAZ005"
+255905,"ADM0","Kazakhstan","KAZ",NA
+255905,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+255905,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+255905,"ADM2","KAZ005001","Balkhash District","KAZ005"
+255905,"ADM2","KAZ010004","Karatal District","KAZ010"
+257335,"ADM0","Kazakhstan","KAZ",NA
+257335,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257335,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+257335,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257335,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+257336,"ADM0","Kazakhstan","KAZ",NA
+257336,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257336,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+257336,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257336,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+257337,"ADM0","Kazakhstan","KAZ",NA
+257337,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257337,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+257337,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257337,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+257338,"ADM0","Kazakhstan","KAZ",NA
+257338,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257338,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257339,"ADM0","Kazakhstan","KAZ",NA
+257339,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257339,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257340,"ADM0","Kazakhstan","KAZ",NA
+257340,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257340,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257341,"ADM0","Kazakhstan","KAZ",NA
+257341,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257341,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257342,"ADM0","Kazakhstan","KAZ",NA
+257342,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257342,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257343,"ADM0","Kazakhstan","KAZ",NA
+257343,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257343,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257344,"ADM0","Kazakhstan","KAZ",NA
+257344,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257344,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257345,"ADM0","Kazakhstan","KAZ",NA
+257345,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257345,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+257345,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257345,"ADM2","KAZ010004","Karatal District","KAZ010"
+257346,"ADM0","Kazakhstan","KAZ",NA
+257346,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+257346,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+257346,"ADM2","KAZ005001","Balkhash District","KAZ005"
+257346,"ADM2","KAZ010004","Karatal District","KAZ010"
+258775,"ADM0","Kazakhstan","KAZ",NA
+258775,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258775,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+258775,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258775,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+258776,"ADM0","Kazakhstan","KAZ",NA
+258776,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258776,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+258776,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258776,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+258777,"ADM0","Kazakhstan","KAZ",NA
+258777,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258777,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+258777,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258777,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+258778,"ADM0","Kazakhstan","KAZ",NA
+258778,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258778,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258779,"ADM0","Kazakhstan","KAZ",NA
+258779,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258779,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258780,"ADM0","Kazakhstan","KAZ",NA
+258780,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258780,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258781,"ADM0","Kazakhstan","KAZ",NA
+258781,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258781,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258782,"ADM0","Kazakhstan","KAZ",NA
+258782,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258782,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258783,"ADM0","Kazakhstan","KAZ",NA
+258783,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258783,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258784,"ADM0","Kazakhstan","KAZ",NA
+258784,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258784,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258785,"ADM0","Kazakhstan","KAZ",NA
+258785,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258785,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258786,"ADM0","Kazakhstan","KAZ",NA
+258786,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258786,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+258786,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258786,"ADM2","KAZ010004","Karatal District","KAZ010"
+258787,"ADM0","Kazakhstan","KAZ",NA
+258787,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258787,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+258787,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258787,"ADM2","KAZ010004","Karatal District","KAZ010"
+258787,"ADM2","KAZ010006","Koksu District","KAZ010"
+258788,"ADM0","Kazakhstan","KAZ",NA
+258788,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+258788,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+258788,"ADM2","KAZ005001","Balkhash District","KAZ005"
+258788,"ADM2","KAZ010004","Karatal District","KAZ010"
+258788,"ADM2","KAZ010006","Koksu District","KAZ010"
+260217,"ADM0","Kazakhstan","KAZ",NA
+260217,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260217,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+260217,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260217,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+260218,"ADM0","Kazakhstan","KAZ",NA
+260218,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260218,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+260218,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260218,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+260218,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+260219,"ADM0","Kazakhstan","KAZ",NA
+260219,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260219,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260219,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+260220,"ADM0","Kazakhstan","KAZ",NA
+260220,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260220,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260220,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+260221,"ADM0","Kazakhstan","KAZ",NA
+260221,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260221,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260221,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+260222,"ADM0","Kazakhstan","KAZ",NA
+260222,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260222,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260222,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+260223,"ADM0","Kazakhstan","KAZ",NA
+260223,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260223,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260224,"ADM0","Kazakhstan","KAZ",NA
+260224,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260224,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260225,"ADM0","Kazakhstan","KAZ",NA
+260225,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260225,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260226,"ADM0","Kazakhstan","KAZ",NA
+260226,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260226,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260226,"ADM2","KAZ005003","Ile District","KAZ005"
+260227,"ADM0","Kazakhstan","KAZ",NA
+260227,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260227,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260228,"ADM0","Kazakhstan","KAZ",NA
+260228,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+260228,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+260228,"ADM2","KAZ005001","Balkhash District","KAZ005"
+260228,"ADM2","KAZ010006","Koksu District","KAZ010"
+261658,"ADM0","Kazakhstan","KAZ",NA
+261658,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261658,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+261658,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+261658,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+261658,"ADM2","KAZ009006","Shu District","KAZ009"
+261659,"ADM0","Kazakhstan","KAZ",NA
+261659,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261659,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+261659,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+261659,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+261660,"ADM0","Kazakhstan","KAZ",NA
+261660,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261660,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+261661,"ADM0","Kazakhstan","KAZ",NA
+261661,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261661,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+261662,"ADM0","Kazakhstan","KAZ",NA
+261662,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261662,"ADM2","KAZ005001","Balkhash District","KAZ005"
+261662,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+261663,"ADM0","Kazakhstan","KAZ",NA
+261663,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261663,"ADM2","KAZ005001","Balkhash District","KAZ005"
+261663,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+261664,"ADM0","Kazakhstan","KAZ",NA
+261664,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261664,"ADM2","KAZ005001","Balkhash District","KAZ005"
+261664,"ADM2","KAZ005003","Ile District","KAZ005"
+261664,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+261665,"ADM0","Kazakhstan","KAZ",NA
+261665,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261665,"ADM2","KAZ005001","Balkhash District","KAZ005"
+261665,"ADM2","KAZ005003","Ile District","KAZ005"
+261665,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+261666,"ADM0","Kazakhstan","KAZ",NA
+261666,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261666,"ADM2","KAZ005001","Balkhash District","KAZ005"
+261666,"ADM2","KAZ005003","Ile District","KAZ005"
+261667,"ADM0","Kazakhstan","KAZ",NA
+261667,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261667,"ADM2","KAZ005001","Balkhash District","KAZ005"
+261667,"ADM2","KAZ005003","Ile District","KAZ005"
+261668,"ADM0","Kazakhstan","KAZ",NA
+261668,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261668,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+261668,"ADM2","KAZ005001","Balkhash District","KAZ005"
+261668,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+261668,"ADM2","KAZ010006","Koksu District","KAZ010"
+261669,"ADM0","Kazakhstan","KAZ",NA
+261669,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+261669,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+261669,"ADM2","KAZ005001","Balkhash District","KAZ005"
+261669,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+261669,"ADM2","KAZ010006","Koksu District","KAZ010"
+263099,"ADM0","Kazakhstan","KAZ",NA
+263099,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263099,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+263099,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+263099,"ADM2","KAZ009004","Moiynkum District","KAZ009"
+263099,"ADM2","KAZ009006","Shu District","KAZ009"
+263100,"ADM0","Kazakhstan","KAZ",NA
+263100,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263100,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+263100,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+263100,"ADM2","KAZ009002","Korday District","KAZ009"
+263100,"ADM2","KAZ009006","Shu District","KAZ009"
+263101,"ADM0","Kazakhstan","KAZ",NA
+263101,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263101,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+263101,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+263101,"ADM2","KAZ009002","Korday District","KAZ009"
+263102,"ADM0","Kazakhstan","KAZ",NA
+263102,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263102,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+263103,"ADM0","Kazakhstan","KAZ",NA
+263103,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263103,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+263104,"ADM0","Kazakhstan","KAZ",NA
+263104,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263104,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+263105,"ADM0","Kazakhstan","KAZ",NA
+263105,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263105,"ADM2","KAZ005003","Ile District","KAZ005"
+263105,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+263106,"ADM0","Kazakhstan","KAZ",NA
+263106,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263106,"ADM2","KAZ005003","Ile District","KAZ005"
+263107,"ADM0","Kazakhstan","KAZ",NA
+263107,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263107,"ADM2","KAZ005001","Balkhash District","KAZ005"
+263107,"ADM2","KAZ005003","Ile District","KAZ005"
+263107,"ADM2","KAZ005008","Talgar District","KAZ005"
+263108,"ADM0","Kazakhstan","KAZ",NA
+263108,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263108,"ADM2","KAZ005001","Balkhash District","KAZ005"
+263108,"ADM2","KAZ005003","Ile District","KAZ005"
+263108,"ADM2","KAZ005008","Talgar District","KAZ005"
+263109,"ADM0","Kazakhstan","KAZ",NA
+263109,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263109,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+263109,"ADM2","KAZ005001","Balkhash District","KAZ005"
+263109,"ADM2","KAZ005008","Talgar District","KAZ005"
+263109,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+263109,"ADM2","KAZ010006","Koksu District","KAZ010"
+263110,"ADM0","Kazakhstan","KAZ",NA
+263110,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+263110,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+263110,"ADM2","KAZ005008","Talgar District","KAZ005"
+263110,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+263110,"ADM2","KAZ010006","Koksu District","KAZ010"
+264541,"ADM0","Kazakhstan","KAZ",NA
+264541,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264541,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+264541,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+264541,"ADM2","KAZ009002","Korday District","KAZ009"
+264542,"ADM0","Kazakhstan","KAZ",NA
+264542,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264542,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+264542,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+264542,"ADM2","KAZ009002","Korday District","KAZ009"
+264543,"ADM0","Kazakhstan","KAZ",NA
+264543,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264543,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+264544,"ADM0","Kazakhstan","KAZ",NA
+264544,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264544,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+264545,"ADM0","Kazakhstan","KAZ",NA
+264545,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264545,"ADM2","KAZ005003","Ile District","KAZ005"
+264545,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+264546,"ADM0","Kazakhstan","KAZ",NA
+264546,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264546,"ADM2","KAZ005003","Ile District","KAZ005"
+264547,"ADM0","Kazakhstan","KAZ",NA
+264547,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264547,"ADM2","KAZ005003","Ile District","KAZ005"
+264548,"ADM0","Kazakhstan","KAZ",NA
+264548,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264548,"ADM2","KAZ005003","Ile District","KAZ005"
+264548,"ADM2","KAZ005006","Qonayev","KAZ005"
+264548,"ADM2","KAZ005008","Talgar District","KAZ005"
+264549,"ADM0","Kazakhstan","KAZ",NA
+264549,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264549,"ADM2","KAZ005006","Qonayev","KAZ005"
+264549,"ADM2","KAZ005008","Talgar District","KAZ005"
+264550,"ADM0","Kazakhstan","KAZ",NA
+264550,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264550,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+264550,"ADM2","KAZ005006","Qonayev","KAZ005"
+264550,"ADM2","KAZ005008","Talgar District","KAZ005"
+264550,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+264551,"ADM0","Kazakhstan","KAZ",NA
+264551,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264551,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+264551,"ADM2","KAZ005006","Qonayev","KAZ005"
+264551,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+264552,"ADM0","Kazakhstan","KAZ",NA
+264552,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+264552,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+264552,"ADM2","KAZ005006","Qonayev","KAZ005"
+264552,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+265981,"ADM0","Kazakhstan","KAZ",NA
+265981,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265981,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+265981,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+265981,"ADM2","KAZ009002","Korday District","KAZ009"
+265982,"ADM0","Kazakhstan","KAZ",NA
+265982,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265982,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+265982,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+265982,"ADM2","KAZ009002","Korday District","KAZ009"
+265983,"ADM0","Kazakhstan","KAZ",NA
+265983,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265983,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+265984,"ADM0","Kazakhstan","KAZ",NA
+265984,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265984,"ADM2","KAZ005003","Ile District","KAZ005"
+265984,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+265985,"ADM0","Kazakhstan","KAZ",NA
+265985,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265985,"ADM2","KAZ005003","Ile District","KAZ005"
+265985,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+265986,"ADM0","Kazakhstan","KAZ",NA
+265986,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265986,"ADM2","KAZ005003","Ile District","KAZ005"
+265986,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+265987,"ADM0","Kazakhstan","KAZ",NA
+265987,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265987,"ADM2","KAZ005003","Ile District","KAZ005"
+265987,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+265988,"ADM0","Kazakhstan","KAZ",NA
+265988,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265988,"ADM2","KAZ005003","Ile District","KAZ005"
+265988,"ADM2","KAZ005006","Qonayev","KAZ005"
+265989,"ADM0","Kazakhstan","KAZ",NA
+265989,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265989,"ADM2","KAZ005003","Ile District","KAZ005"
+265989,"ADM2","KAZ005006","Qonayev","KAZ005"
+265989,"ADM2","KAZ005008","Talgar District","KAZ005"
+265990,"ADM0","Kazakhstan","KAZ",NA
+265990,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265990,"ADM2","KAZ005006","Qonayev","KAZ005"
+265990,"ADM2","KAZ005008","Talgar District","KAZ005"
+265991,"ADM0","Kazakhstan","KAZ",NA
+265991,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265991,"ADM2","KAZ005006","Qonayev","KAZ005"
+265992,"ADM0","Kazakhstan","KAZ",NA
+265992,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265992,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+265992,"ADM2","KAZ005006","Qonayev","KAZ005"
+265992,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+265993,"ADM0","Kazakhstan","KAZ",NA
+265993,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265993,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+265993,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+265993,"ADM2","KAZ005006","Qonayev","KAZ005"
+265993,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+265994,"ADM0","Kazakhstan","KAZ",NA
+265994,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265994,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+265994,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+265994,"ADM2","KAZ005006","Qonayev","KAZ005"
+265994,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+265995,"ADM0","Kazakhstan","KAZ",NA
+265995,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265995,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+265995,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+265995,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+265996,"ADM0","Kazakhstan","KAZ",NA
+265996,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265996,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+265996,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+265996,"ADM2","KAZ005009","Uygur District","KAZ005"
+265996,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+265997,"ADM0","Kazakhstan","KAZ",NA
+265997,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265997,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+265997,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+265997,"ADM2","KAZ005009","Uygur District","KAZ005"
+265997,"ADM2","KAZ010005","Kerbulak District","KAZ010"
+265997,"ADM2","KAZ010007","Panfilov District","KAZ010"
+265998,"ADM0","Kazakhstan","KAZ",NA
+265998,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265998,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+265998,"ADM2","KAZ005009","Uygur District","KAZ005"
+265998,"ADM2","KAZ010007","Panfilov District","KAZ010"
+265999,"ADM0","Kazakhstan","KAZ",NA
+265999,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+265999,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+265999,"ADM2","KAZ005009","Uygur District","KAZ005"
+265999,"ADM2","KAZ010007","Panfilov District","KAZ010"
+266000,"ADM0","Kazakhstan","KAZ",NA
+266000,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+266000,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+266000,"ADM2","KAZ005009","Uygur District","KAZ005"
+266000,"ADM2","KAZ010007","Panfilov District","KAZ010"
+266001,"ADM0","Kazakhstan","KAZ",NA
+266001,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+266001,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+266001,"ADM2","KAZ005009","Uygur District","KAZ005"
+266001,"ADM2","KAZ010007","Panfilov District","KAZ010"
+266002,"ADM0","Kazakhstan","KAZ",NA
+266002,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+266002,"ADM1","KAZ010","Jetisu Region","Kazakhstan"
+266002,"ADM2","KAZ005009","Uygur District","KAZ005"
+266002,"ADM2","KAZ010007","Panfilov District","KAZ010"
+267420,"ADM0","Kazakhstan","KAZ",NA
+267420,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267420,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+267420,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+267420,"ADM2","KAZ009002","Korday District","KAZ009"
+267420,"ADM2","KAZ009006","Shu District","KAZ009"
+267421,"ADM0","Kazakhstan","KAZ",NA
+267421,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267421,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+267421,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+267421,"ADM2","KAZ009002","Korday District","KAZ009"
+267422,"ADM0","Kazakhstan","KAZ",NA
+267422,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267422,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+267422,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+267422,"ADM2","KAZ009002","Korday District","KAZ009"
+267423,"ADM0","Kazakhstan","KAZ",NA
+267423,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267423,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+267424,"ADM0","Kazakhstan","KAZ",NA
+267424,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267424,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+267425,"ADM0","Kazakhstan","KAZ",NA
+267425,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267425,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+267426,"ADM0","Kazakhstan","KAZ",NA
+267426,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267426,"ADM2","KAZ005003","Ile District","KAZ005"
+267426,"ADM2","KAZ005004","Karasay District","KAZ005"
+267426,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+267427,"ADM0","Kazakhstan","KAZ",NA
+267427,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267427,"ADM2","KAZ005003","Ile District","KAZ005"
+267427,"ADM2","KAZ005004","Karasay District","KAZ005"
+267427,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+267428,"ADM0","Kazakhstan","KAZ",NA
+267428,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267428,"ADM2","KAZ005003","Ile District","KAZ005"
+267429,"ADM0","Kazakhstan","KAZ",NA
+267429,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267429,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+267429,"ADM2","KAZ005003","Ile District","KAZ005"
+267429,"ADM2","KAZ005006","Qonayev","KAZ005"
+267429,"ADM2","KAZ005008","Talgar District","KAZ005"
+267430,"ADM0","Kazakhstan","KAZ",NA
+267430,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267430,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+267430,"ADM2","KAZ005006","Qonayev","KAZ005"
+267430,"ADM2","KAZ005008","Talgar District","KAZ005"
+267431,"ADM0","Kazakhstan","KAZ",NA
+267431,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267431,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+267431,"ADM2","KAZ005006","Qonayev","KAZ005"
+267432,"ADM0","Kazakhstan","KAZ",NA
+267432,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267432,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+267432,"ADM2","KAZ005006","Qonayev","KAZ005"
+267433,"ADM0","Kazakhstan","KAZ",NA
+267433,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267433,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+267433,"ADM2","KAZ005006","Qonayev","KAZ005"
+267434,"ADM0","Kazakhstan","KAZ",NA
+267434,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267434,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+267435,"ADM0","Kazakhstan","KAZ",NA
+267435,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267435,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+267436,"ADM0","Kazakhstan","KAZ",NA
+267436,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267436,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+267437,"ADM0","Kazakhstan","KAZ",NA
+267437,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267437,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+267437,"ADM2","KAZ005009","Uygur District","KAZ005"
+267438,"ADM0","Kazakhstan","KAZ",NA
+267438,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267438,"ADM2","KAZ005009","Uygur District","KAZ005"
+267439,"ADM0","Kazakhstan","KAZ",NA
+267439,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267439,"ADM2","KAZ005009","Uygur District","KAZ005"
+267440,"ADM0","Kazakhstan","KAZ",NA
+267440,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267440,"ADM2","KAZ005009","Uygur District","KAZ005"
+267441,"ADM0","Kazakhstan","KAZ",NA
+267441,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267441,"ADM2","KAZ005009","Uygur District","KAZ005"
+267442,"ADM0","Kazakhstan","KAZ",NA
+267442,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267442,"ADM2","KAZ005009","Uygur District","KAZ005"
+267443,"ADM0","Kazakhstan","KAZ",NA
+267443,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+267443,"ADM2","KAZ005009","Uygur District","KAZ005"
+268862,"ADM0","Kazakhstan","KAZ",NA
+268862,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268862,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+268862,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+268862,"ADM2","KAZ009002","Korday District","KAZ009"
+268863,"ADM0","Kazakhstan","KAZ",NA
+268863,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268863,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+268864,"ADM0","Kazakhstan","KAZ",NA
+268864,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268864,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+268865,"ADM0","Kazakhstan","KAZ",NA
+268865,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268865,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+268866,"ADM0","Kazakhstan","KAZ",NA
+268866,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268866,"ADM2","KAZ005004","Karasay District","KAZ005"
+268866,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+268867,"ADM0","Kazakhstan","KAZ",NA
+268867,"ADM1","KAZ004","Almaty","Kazakhstan"
+268867,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268867,"ADM2","KAZ004001","Alatau District","KAZ004"
+268867,"ADM2","KAZ005003","Ile District","KAZ005"
+268867,"ADM2","KAZ005004","Karasay District","KAZ005"
+268867,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+268868,"ADM0","Kazakhstan","KAZ",NA
+268868,"ADM1","KAZ004","Almaty","Kazakhstan"
+268868,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268868,"ADM2","KAZ004001","Alatau District","KAZ004"
+268868,"ADM2","KAZ004002","Almaly District","KAZ004"
+268868,"ADM2","KAZ004003","Auezov District","KAZ004"
+268868,"ADM2","KAZ004005","Jetysu District","KAZ004"
+268868,"ADM2","KAZ004006","Medeu District","KAZ004"
+268868,"ADM2","KAZ004008","Turksib District","KAZ004"
+268868,"ADM2","KAZ005003","Ile District","KAZ005"
+268868,"ADM2","KAZ005004","Karasay District","KAZ005"
+268869,"ADM0","Kazakhstan","KAZ",NA
+268869,"ADM1","KAZ004","Almaty","Kazakhstan"
+268869,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268869,"ADM2","KAZ004006","Medeu District","KAZ004"
+268869,"ADM2","KAZ004008","Turksib District","KAZ004"
+268869,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+268869,"ADM2","KAZ005003","Ile District","KAZ005"
+268869,"ADM2","KAZ005008","Talgar District","KAZ005"
+268870,"ADM0","Kazakhstan","KAZ",NA
+268870,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268870,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+268870,"ADM2","KAZ005008","Talgar District","KAZ005"
+268871,"ADM0","Kazakhstan","KAZ",NA
+268871,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268871,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+268871,"ADM2","KAZ005008","Talgar District","KAZ005"
+268872,"ADM0","Kazakhstan","KAZ",NA
+268872,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268872,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+268873,"ADM0","Kazakhstan","KAZ",NA
+268873,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268873,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+268874,"ADM0","Kazakhstan","KAZ",NA
+268874,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268874,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+268874,"ADM2","KAZ005005","Kegen District","KAZ005"
+268875,"ADM0","Kazakhstan","KAZ",NA
+268875,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268875,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+268875,"ADM2","KAZ005005","Kegen District","KAZ005"
+268876,"ADM0","Kazakhstan","KAZ",NA
+268876,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268876,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+268876,"ADM2","KAZ005005","Kegen District","KAZ005"
+268877,"ADM0","Kazakhstan","KAZ",NA
+268877,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268877,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+268877,"ADM2","KAZ005005","Kegen District","KAZ005"
+268877,"ADM2","KAZ005009","Uygur District","KAZ005"
+268878,"ADM0","Kazakhstan","KAZ",NA
+268878,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268878,"ADM2","KAZ005009","Uygur District","KAZ005"
+268879,"ADM0","Kazakhstan","KAZ",NA
+268879,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268879,"ADM2","KAZ005009","Uygur District","KAZ005"
+268880,"ADM0","Kazakhstan","KAZ",NA
+268880,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268880,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+268880,"ADM2","KAZ005009","Uygur District","KAZ005"
+268881,"ADM0","Kazakhstan","KAZ",NA
+268881,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268881,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+268881,"ADM2","KAZ005009","Uygur District","KAZ005"
+268882,"ADM0","Kazakhstan","KAZ",NA
+268882,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268882,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+268882,"ADM2","KAZ005009","Uygur District","KAZ005"
+268883,"ADM0","Kazakhstan","KAZ",NA
+268883,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+268883,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+268883,"ADM2","KAZ005009","Uygur District","KAZ005"
+270302,"ADM0","Kazakhstan","KAZ",NA
+270302,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270302,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+270302,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+270302,"ADM2","KAZ009002","Korday District","KAZ009"
+270303,"ADM0","Kazakhstan","KAZ",NA
+270303,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270303,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+270303,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+270303,"ADM2","KAZ009002","Korday District","KAZ009"
+270304,"ADM0","Kazakhstan","KAZ",NA
+270304,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270304,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+270305,"ADM0","Kazakhstan","KAZ",NA
+270305,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270305,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+270306,"ADM0","Kazakhstan","KAZ",NA
+270306,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270306,"ADM2","KAZ005004","Karasay District","KAZ005"
+270306,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+270307,"ADM0","Kazakhstan","KAZ",NA
+270307,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270307,"ADM2","KAZ005004","Karasay District","KAZ005"
+270308,"ADM0","Kazakhstan","KAZ",NA
+270308,"ADM1","KAZ004","Almaty","Kazakhstan"
+270308,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270308,"ADM2","KAZ004001","Alatau District","KAZ004"
+270308,"ADM2","KAZ004002","Almaly District","KAZ004"
+270308,"ADM2","KAZ004003","Auezov District","KAZ004"
+270308,"ADM2","KAZ004004","Bostandyk District","KAZ004"
+270308,"ADM2","KAZ004006","Medeu District","KAZ004"
+270308,"ADM2","KAZ004007","Nauryzbay District","KAZ004"
+270308,"ADM2","KAZ005004","Karasay District","KAZ005"
+270309,"ADM0","Kazakhstan","KAZ",NA
+270309,"ADM1","KAZ004","Almaty","Kazakhstan"
+270309,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270309,"ADM2","KAZ004006","Medeu District","KAZ004"
+270309,"ADM2","KAZ005004","Karasay District","KAZ005"
+270309,"ADM2","KAZ005005","Kegen District","KAZ005"
+270309,"ADM2","KAZ005008","Talgar District","KAZ005"
+270310,"ADM0","Kazakhstan","KAZ",NA
+270310,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270310,"ADM2","KAZ005005","Kegen District","KAZ005"
+270310,"ADM2","KAZ005008","Talgar District","KAZ005"
+270311,"ADM0","Kazakhstan","KAZ",NA
+270311,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270311,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+270311,"ADM2","KAZ005005","Kegen District","KAZ005"
+270311,"ADM2","KAZ005008","Talgar District","KAZ005"
+270312,"ADM0","Kazakhstan","KAZ",NA
+270312,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270312,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+270312,"ADM2","KAZ005005","Kegen District","KAZ005"
+270312,"ADM2","KAZ005008","Talgar District","KAZ005"
+270313,"ADM0","Kazakhstan","KAZ",NA
+270313,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270313,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+270313,"ADM2","KAZ005005","Kegen District","KAZ005"
+270313,"ADM2","KAZ005008","Talgar District","KAZ005"
+270314,"ADM0","Kazakhstan","KAZ",NA
+270314,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270314,"ADM2","KAZ005002","Enbekshikazakh District","KAZ005"
+270314,"ADM2","KAZ005005","Kegen District","KAZ005"
+270314,"ADM2","KAZ005008","Talgar District","KAZ005"
+270315,"ADM0","Kazakhstan","KAZ",NA
+270315,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270315,"ADM2","KAZ005005","Kegen District","KAZ005"
+270316,"ADM0","Kazakhstan","KAZ",NA
+270316,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270316,"ADM2","KAZ005005","Kegen District","KAZ005"
+270317,"ADM0","Kazakhstan","KAZ",NA
+270317,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270317,"ADM2","KAZ005005","Kegen District","KAZ005"
+270317,"ADM2","KAZ005009","Uygur District","KAZ005"
+270318,"ADM0","Kazakhstan","KAZ",NA
+270318,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270318,"ADM2","KAZ005005","Kegen District","KAZ005"
+270318,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+270318,"ADM2","KAZ005009","Uygur District","KAZ005"
+270319,"ADM0","Kazakhstan","KAZ",NA
+270319,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270319,"ADM2","KAZ005005","Kegen District","KAZ005"
+270319,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+270319,"ADM2","KAZ005009","Uygur District","KAZ005"
+270320,"ADM0","Kazakhstan","KAZ",NA
+270320,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270320,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+270320,"ADM2","KAZ005009","Uygur District","KAZ005"
+270321,"ADM0","Kazakhstan","KAZ",NA
+270321,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270321,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+270322,"ADM0","Kazakhstan","KAZ",NA
+270322,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+270322,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+270322,"ADM2","KAZ005009","Uygur District","KAZ005"
+271743,"ADM0","Kazakhstan","KAZ",NA
+271743,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+271743,"ADM1","KAZ009","Jambyl Region","Kazakhstan"
+271743,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+271743,"ADM2","KAZ009002","Korday District","KAZ009"
+271746,"ADM0","Kazakhstan","KAZ",NA
+271746,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+271746,"ADM2","KAZ005004","Karasay District","KAZ005"
+271746,"ADM2","KAZ005010","Zhambyl District","KAZ005"
+271753,"ADM0","Kazakhstan","KAZ",NA
+271753,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+271753,"ADM2","KAZ005005","Kegen District","KAZ005"
+271755,"ADM0","Kazakhstan","KAZ",NA
+271755,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+271755,"ADM2","KAZ005005","Kegen District","KAZ005"
+271756,"ADM0","Kazakhstan","KAZ",NA
+271756,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+271756,"ADM2","KAZ005005","Kegen District","KAZ005"
+271757,"ADM0","Kazakhstan","KAZ",NA
+271757,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+271757,"ADM2","KAZ005005","Kegen District","KAZ005"
+271758,"ADM0","Kazakhstan","KAZ",NA
+271758,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+271758,"ADM2","KAZ005005","Kegen District","KAZ005"
+271758,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+271759,"ADM0","Kazakhstan","KAZ",NA
+271759,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+271759,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+271760,"ADM0","Kazakhstan","KAZ",NA
+271760,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+271760,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+271761,"ADM0","Kazakhstan","KAZ",NA
+271761,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+271761,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+271762,"ADM0","Kazakhstan","KAZ",NA
+271762,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+271762,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+273198,"ADM0","Kazakhstan","KAZ",NA
+273198,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+273198,"ADM2","KAZ005005","Kegen District","KAZ005"
+273198,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+273199,"ADM0","Kazakhstan","KAZ",NA
+273199,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+273199,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+273200,"ADM0","Kazakhstan","KAZ",NA
+273200,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+273200,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+273201,"ADM0","Kazakhstan","KAZ",NA
+273201,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+273201,"ADM2","KAZ005007","Raiymbek District","KAZ005"
+274641,"ADM0","Kazakhstan","KAZ",NA
+274641,"ADM1","KAZ005","Almaty Region","Kazakhstan"
+274641,"ADM2","KAZ005007","Raiymbek District","KAZ005"

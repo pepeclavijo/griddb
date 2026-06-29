@@ -250,6 +250,136 @@ If multiple `mask_source` versions exist for the same crop, specify
 `mask_source` explicitly — otherwise the query will return duplicate
 rows per cell (one per source).
 
+#### `get_simulation_cells_multi(con, resolution_arcmin, admin_level, parent_level = NULL, parent_ids = NULL, parent_names = NULL, admin_ids = NULL, admin_names = NULL, expand_near_matches = FALSE, crop = "cropland", min_frac_area = 0.05, mask_source = NULL)`
+Combines cells across multiple admin units, deduplicating boundary
+cells that intersect more than one of the requested units. Two
+selection modes, mutually exclusive per call:
+- **Parent-based**: `parent_level` + `parent_ids`/`parent_names` (e.g.
+  pull every ADM2 district within one or more ADM1 oblasts, without
+  enumerating districts by hand).
+- **Direct-unit**: `admin_ids`/`admin_names` at `admin_level` directly
+  (e.g. a specific handful of districts for small-area testing).
+
+Set `expand_near_matches = TRUE` to automatically also include any
+other unit at the same level whose name partially matches a requested
+unit's name (handles the city/region naming collision pattern, e.g.
+"Almaty" the city vs. "Almaty Region" the oblast — see
+`PROCESS_NARRATIVE.md`). A message lists any units added this way.
+
+Returns an `sf` object with an added `n_admin_matches` column showing
+how many resolved admin units each cell intersected.
+
+#### `attach_admin_names(con, cells, admin_level)`
+Looks up each cell's `admin_name` at a given admin level and attaches
+it as a column — used to build a per-cell `reporting_unit` vector for
+`export_cells_to_legacy_geojson()`. If a cell matches more than one
+unit at that level (a boundary cell), the first match by `admin_id` is
+used and a warning lists the affected cells, since a single label can
+only record one name per feature. See `export_admin_lookup()` below
+for an alternative that preserves every match instead of picking one.
+
+#### `attach_admin_hierarchy(con, cells, admin_levels, sep = "_")`
+Like `attach_admin_names()`, but looks up multiple levels at once
+(e.g. `c("ADM0", "ADM1", "ADM2")`) and combines them into one
+sanitized path string (e.g. `"Kazakhstan_AlmatyRegion_Talgar"`) in a
+new `admin_path` column, plus one column per level (e.g.
+`ADM1_name`) for inspection. Same boundary-cell caveat as
+`attach_admin_names()` applies independently at each level.
+
+#### `export_cells_to_legacy_geojson(cells, reporting_unit = "griddb_export", clip_boundary = NULL, output_path = NULL, area_crs = NULL)`
+Produces a GeoJSON FeatureCollection: one Feature per cell, MultiPolygon
+geometry, with properties `name`, `cell_id`, `area` (square meters),
+and `reporting_unit` — **always present by default**. This matches the
+legacy DSSAT-pipeline delivery format that the existing CLI/run tool
+reads directly: it populates its own `polygon_name`/`polygon_area`
+output columns from `name`/`area`, and those come out empty if the
+input file is missing those properties — so they cannot be made
+optional without breaking that tool.
+
+`cell_id` is **always** present as its own separate property
+regardless of what `reporting_unit` is set to — the cell's own stable,
+globally-meaningful identifier, permanent even if admin boundaries are
+later re-ingested or renamed. `name` is set directly from
+`reporting_unit` and is cosmetic/display-only; anything needing to
+reliably re-identify a cell later should key off `cell_id`, never
+`name`.
+
+`reporting_unit` accepts a single string (applied to every feature),
+a vector with one value per cell (e.g. via `attach_admin_names()` or
+`attach_admin_hierarchy()` for a combined multi-district export), or
+can be omitted entirely, in which case it defaults to the placeholder
+`"griddb_export"` so the required columns are still populated even
+when no meaningful label is available yet.
+
+For administrative context that doesn't need to be squeezed into a
+single cosmetic label, see `export_admin_lookup()` below — a companion
+file/table that preserves every admin match per cell (including
+ambiguous boundary cells) for joining on `cell_id` separately.
+
+By default, cells are exported whole (no geometric clipping) — a cell
+is included if it was returned by the query, full stop. Pass
+`clip_boundary` (an sf/sfc polygon) to perform true edge-clipping via
+`st_intersection()` if exact-boundary-matching output is required for
+a specific delivery; note that clipping can split a single cell into
+multiple fragments sharing the same `cell_id`, so prefer no clipping
+when `cell_id` needs to uniquely identify a feature.
+
+#### `export_admin_lookup(con, cells, admin_levels, output_path = NULL)`
+Writes a CSV (or returns a data frame) mapping each `cell_id` to its
+`admin_id`/`admin_name`/`parent_id` at one or more admin levels.
+Unlike `attach_admin_names()`/`attach_admin_hierarchy()`, this
+preserves **every** match for a cell at a given level — a boundary
+cell that intersects two districts simply gets two rows — rather than
+arbitrarily picking one. Intended as a companion file to a
+`cell_id`-only spatial export: join on `cell_id` to recover whatever
+administrative context is needed, with no information lost or
+silently collapsed for ambiguous boundary cells.
+
+#### `get_nearest_cell(con, resolution_arcmin, lon = NULL, lat = NULL, points = NULL, crop = "cropland", min_frac_area = NULL, mask_source = NULL)`
+For point/field-level consumers (a specific farm location, a single
+lat/lon, or a small field polygon) rather than regional/aggregate
+queries. Returns the grid cell that contains the point, computed
+directly via `compute_global_cell_id()` rather than a spatial
+nearest-neighbor search — since the grid is fixed and known, the
+containing cell is computable exactly from the coordinates alone.
+
+This deliberately does not reshape cell geometry around the point,
+consistent with standard practice in this modeling tradition
+(DSSAT/pSIMS/AgMIP): a cell is treated as a representative sample for
+its whole area, and a small field within it is simply assigned that
+cell's value — see "Two delivery modes" below.
+
+Accepts either `lon`/`lat` vectors (one or many points at once) or an
+sf `points` object (POINT/MULTIPOINT used directly; POLYGON uses its
+centroid). Returns one row per input point, in the original order,
+with `query_lon`/`query_lat` carried through for reference. Warns
+(rather than erroring) if a point has no match, e.g. because a crop
+mask filter excluded its cell.
+
+## Two delivery modes
+
+Looking back at the system as a whole, there are two distinct ways
+results get delivered, matching two different kinds of consumer:
+
+- **Regional/aggregate** — a customer or analysis wants production
+  totals or averages across an administrative area. Deliver whole-cell
+  polygons, yields, and `frac_area`; let the consumer area-weight and
+  sum as needed (the standard pSIMS/AgMIP aggregation pattern: `P = Σ
+  Y(x,t) * W(x,t)`, where `W` is the cropland-area weight). This is
+  what `export_cells_to_legacy_geojson()`/`export_admin_lookup()` are
+  for.
+- **Point/field-level** — a customer has a specific farm or field and
+  wants its expected yield. There is no area-weighting or geometry
+  reshaping involved; the answer is simply "which cell's value applies
+  here", which `get_nearest_cell()` answers directly.
+
+Grid cells are never carved or reshaped to match cropland boundaries
+within a cell in either mode — that would reintroduce the
+point-in-polygon overhead this whole system was designed to eliminate
+(see `PROCESS_NARRATIVE.md`). `frac_area` is used only as an
+aggregation weight (regional mode) or a presence filter (both modes
+via `min_frac_area`), never to alter geometry.
+
 ## Usage example: end-to-end for one country
 
 ```r
